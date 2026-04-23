@@ -1,0 +1,3 @@
+This repo is inspired by the book Gödel, Escher, Bach: An Eternal Golden Braid by Hofstadter, especially the concept of the "strange loop," a system that rises through layers of structure only to return to itself.
+I use this space to practice coding problems that emphasize recursion, self-reference, invariants, and transformations.
+Each exercise must be solved in two unique ways and is designed to strengthen my ability to reason about structure, detect patterns, and understand how rule changes create large effects. The exercises are created for me by an LLM, but the LLM is not allowed to assist with the code. It can explain logic errors and provide links to official Python documentation. 
