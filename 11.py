@@ -8,7 +8,7 @@
 # Provide two distinct solution paths that both respect the invariant. 
 
 
-# Solution Path A - Ledger States
+# Solution A - Ledger States
 
 from operator import index
 
@@ -53,3 +53,27 @@ resulte = ledger_state([])
 for checkpoint_index, snapshot in enumerate(resulte):
     values = {candidate_missing(list(state)) for state in snapshot}
     print(f"QUERY {checkpoint_index + 1}: candidate values = {values}")
+
+
+# Solution B - Invariant Analysis
+
+def invariant_analysis(operations):
+    operations = ["ADD 5", "ADD 2", "ADD 9", "REMOVE", "ADD 4", "QUERY", "ADD 7", "REMOVE", "REMOVE", "QUERY"]
+    y = 1
+    query_outputs = []
+
+    for op in operations:
+        if op.startswith("ADD"):
+            _, x = op.split()
+            x = int(x)
+            if x == y:
+                y += 1
+
+        # REMOVE is not needed to track the invariant, since it can only remove existing elements. 
+
+        elif op == "QUERY":
+            query_outputs.append(y)
+        
+    return query_outputs
+result = invariant_analysis([])
+print(result)
